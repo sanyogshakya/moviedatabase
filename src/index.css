@@ -1,13 +1,380 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+/* 
+====== 
+Variables 
+======
+*/
+:root {
+  --primaryLightColor: #6295ae;
+  --primaryColor: #0c5375;
+  --primaryDarkColor: #06293a;
+  --mainWhite: #fff;
+  --offWhite: #f7f7f7;
+  --mainBackground: #dbe7ec;
+  --mainOverlay: rgba(35, 10, 36, 0.4);
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --darkGrey: #afafaf;
+  --mainRed: #bd0303;
+  --mainTransition: all 0.3s ease;
+  --mainSpacing: 0.3rem;
+  --lightShadow: 1px 4px 4px 0px rgba(0, 0, 0, 0.5);
+  --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+  --mainBorderRadius: 0.25rem;
+  --smallWidth: 85vw;
+  --maxWidth: 40rem;
+  --fullWidth: 1170px;
+}
+/* 
+====== 
+Global Styles 
+======
+*/
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: var(--mainBlack);
+  background: var(--mainBackground);
+  line-height: 1.4;
+  font-size: 1rem;
+  font-weight: 300;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  font-family: 'Ubuntu';
+  margin-bottom: 1.25rem;
+  letter-spacing: var(--mainSpacing);
+}
+p {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: var(--mainBlack);
+}
+img {
+  width: 100%;
+  display: block;
+}
+/* 
+=============
+Button Styles
+=============
+*/
+.btn {
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  color: var(--primaryDarkColor);
+  border: 2px solid var(--primaryDarkColor);
+  padding: 0.45rem 0.8rem;
+  display: inline-block;
+  transition: var(--mainTransition);
+  cursor: pointer;
+  font-size: 0.8rem;
+  background: transparent;
+  border-radius: var(--mainBorderRadius);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.btn:hover {
+  background: var(--primaryColor);
+  color: var(--mainWhite);
+}
+.btn-details {
+  background: var(--primaryLightColor);
+  margin-left: 0.6rem;
+  padding: 0.25rem 0.4rem;
+  font-weight: 600;
+}
+.btn-details:hover {
+  background: var(--primaryLightColor);
+  border-color: var(--offWhite);
+}
+.static-btn {
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  color: var(--primaryColor);
+  border: 2px solid var(--primaryColor);
+  padding: 0.2rem 0.3rem;
+  display: inline-block;
+  font-size: 0.6rem;
+  background: transparent;
+  border-radius: var(--mainBorderRadius);
+}
+/* 
+====== 
+Navbar
+======
+*/
+.navbar {
+  background: var(--primaryDarkColor);
+  color: var(--offWhite);
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--lightShadow);
+}
+.nav-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: var(--smallWidth);
+  margin: 0 auto;
+  max-width: var(--fullWidth);
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--offWhite);
+  text-transform: capitalize;
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-size: 1.2rem;
+  padding: 0.25rem 0.5rem;
+  transition: var(--mainTransition);
+}
+.nav-links a:hover {
+  color: var(--primaryColor);
+}
+.logo {
+  color: var(--offWhite);
+  margin-bottom: 0;
+  cursor: pointer;
+}
+/* 
+===========
+Section Styles
+===========
+*/
+.section-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem;
+}
+.section-title {
+  display: flex;
+  flex-direction: column;
+  color: var(--primaryDarkColor);
+  margin-bottom: 2rem;
+}
+.section-title::after {
+  content: '';
+  border-top: 4px solid var(--primaryDarkColor);
+  border-radius: 2px;
+}
+.title {
+  color: var(--primaryDarkColor);
+}
+/* 
+==============
+Search Section Styles
+==============
+ */
+.search-section {
+  background-color: var(--offWhite);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 3px;
+  box-shadow: var(--lightShadow);
+  border: 2px solid var(--primaryDarkColor);
+  color: var(--primaryDarkColor);
+}
+.searchbar {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+input {
+  padding: 0.3rem 0.4rem;
+  border: 1px solid var(--primaryDarkColor);
+  border-radius: 3px;
+  min-width: 15rem;
+  font-size: 1.4rem;
+  font-family: 'Ubuntu';
+}
+
+.movie-list-section {
+  width: 85vw;
+}
+
+/* 
+=============
+Movie Container
+=============
+ */
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.movie-card {
+  margin: 0.7rem;
+  background-color: var(--mainBackground);
+  position: relative;
+  max-width: 180px;
+  height: 350px;
+}
+
+.overlay-container {
+  position: relative;
+}
+
+.movie-card img {
+  max-width: 180px;
+  max-height: 260px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.3s ease;
+  backface-visibility: hidden;
+}
+.overlay {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.movie-card:hover img {
+  opacity: 0.3;
+}
+.movie-card:hover .overlay {
+  opacity: 1;
+}
+
+.card-info-container {
+  margin: 0.5rem;
+}
+
+.card-title {
+  font-size: 0.9rem;
+  height: 40px;
+}
+
+.year-type {
+  display: flex;
+  justify-content: space-between;
+}
+/*
+==========
+Movie Details Section
+==========
+ */
+.movie-details-section {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+}
+.single-movie-container {
+  max-width: 80vw;
+  display: flex;
+  flex-direction: column;
+}
+.movie-details-section .movie-title {
+  display: flex;
+  flex-direction: column;
+}
+.movie-details-section .movie-title::after {
+  content: '';
+  border-top: 3px solid var(--primaryDarkColor);
+}
+
+.details-container {
+  display: flex;
+}
+
+.details-container img {
+  max-width: 200px;
+  min-width: 160px;
+  margin-top: 20px;
+}
+.movie-details {
+  margin-left: 2rem;
+  max-width: 600px;
+}
+.movie-details p span {
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 600px) {
+  .details-container {
+    display: flex;
+    margin-left: 1rem;
+    flex-direction: column;
+  }
+  .movie-details {
+    margin-left: 0;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .movie-card {
+    margin: 1rem;
+    position: relative;
+    max-width: 220px;
+    display: inline-block;
+  }
+
+  .movie-card img {
+    max-width: 220px;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .searchbar label {
+    font-size: 0.9rem;
+  }
+  .searchbar input {
+    font-size: 0.8rem;
+    min-width: 200px;
+  }
+
+  .search-section {
+    width: 250px;
+    overflow: hidden;
+  }
+}
+
+@media only screen and (max-width: 376px) {
+  .navbar h1,
+  .navbar h2,
+  .navbar h3,
+  .navbar h4 {
+    font-size: 1rem;
+  }
+  .navbar a {
+    font-size: 0.9rem;
+  }
 }
